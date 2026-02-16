@@ -1,198 +1,370 @@
 # Diamond Search Methodology
 
-## المفهوم
+## Concept
 
-منهجية البحث الماسي: 7 وكلاء في 3 طبقات يبحثون بالتوازي، كل وكيل من زاوية مختلفة، ثم تتجمع النتائج في نقطة واحدة.
+The Diamond Search methodology uses 7 specialized agents across 3 layers, working in parallel, each searching from a different angle. Results converge into a single clear recommendation.
 
 ```
          [BRIEF]
             |
     --------+--------
     |   |    |   |
-   [1] [2]  [3] [4]     ← Search Layer (متوازي)
+   [1] [2]  [3] [4]     ← Search Layer (parallel)
     |   |    |   |
     --------+--------
             |
-        [5]   [6]        ← Expertise Layer (متوازي)
+        [5]   [6]        ← Expertise Layer (parallel)
             |
-      [CONVERGENCE]      ← تجميع
+      [CONVERGENCE]
             |
            [7]            ← Price Layer
             |
         [OUTPUT]
 ```
 
-## قاعدة سياق الفريق
+## Team Context Rule
 
-كل وكيل يبدأ بهالجملة:
+Every agent's prompt starts with:
 
-> "أنت جزء من فريق بحث مكوّن من 7 وكلاء. دورك: [role]. زملاؤك يغطون الزوايا الأخرى — ركّز على دورك بالتحديد."
+> "You are part of a 7-agent product research team. Your role: [role]. Your teammates cover other angles — focus strictly on YOUR specific role."
 
-السبب: بدون هالسياق، كل وكيل يحاول يغطي كل شي ويطلع نتائج مكررة.
+Without this context, every agent tries to cover everything and produces duplicate results.
 
-## قاعدة مرونة العدد
+## Flexibility Rule
 
-العدد 7 مو ثابت. لو المنتج بسيط (مثلا: كيبل USB-C)، ممكن تكتفي بـ 3 وكلاء: Mainstream + Local Market + Price. القاعدة: استخدم وكلاء بقدر تعقيد القرار.
+The number 7 is not fixed. For simple products (e.g., a USB-C cable), 3 agents suffice: Mainstream + Local Market + Price. Rule: scale agents to match decision complexity.
 
 ---
 
-## طبقة البحث (Search Layer)
+## Search Layer
 
 ### Agent 1: Mainstream Research
 
-**الدور:** بحث في المصادر الرئيسية المعروفة
-**المصادر:** Reddit, YouTube (reviews مفصلة), Wirecutter, RTINGS, Tom's Guide
-**المخرج:** أفضل 3-5 خيارات مع رابط المصدر وسبب الترشيح
+**Role:** Search well-known, trusted review sources
+**Sources:** Reddit, YouTube (detailed reviews), Wirecutter, RTINGS, Tom's Guide
+**Output:** Top 3-5 options with source links and reasoning
 
-**تعليمات:**
-- ركّز على مراجعات آخر 12 شهر
-- فضّل المراجعات المقارنة على المراجعات الفردية
-- سجّل أي إجماع واضح (نفس المنتج يتكرر عند عدة مصادر)
+**Full Prompt:**
+
+```
+You are part of a 7-agent product research team. Your role: Mainstream Research.
+Your teammates cover other angles — focus strictly on YOUR specific role.
+
+Product: {product}
+Budget: {budget}
+Use case: {use_case}
+
+Available search tools: {available_tools}
+Preferred tools: web_search for broad queries, web_fetch for review articles, camofox for Reddit/YouTube
+Fallback: web_search + web_fetch
+
+SEARCH STRATEGY:
+1. Start with web_search: "best {product} {year} reddit", "best {product} for {use_case}"
+2. Check Wirecutter and RTINGS via web_fetch for their top picks
+3. Search YouTube reviews: "{product} review {year}" — look for comparative reviews
+4. Check Reddit threads: r/BuyItForLife, relevant subreddits for the product category
+
+INSTRUCTIONS:
+- Focus on reviews from the last 12 months
+- Prefer comparative reviews over single-product reviews
+- Note any clear consensus (same product recommended by multiple independent sources)
+- Record the original source for each recommendation
+
+OUTPUT FORMAT:
+For each recommended product (3-5 max):
+- Product name and exact model
+- Why it's recommended (specific strengths)
+- Source(s) with URLs where possible
+- Key specs relevant to the stated use case
+- Any noted drawbacks or caveats
+- Approximate price range
+```
+
+**Nested sub-agent option:** For complex categories (laptops, headphones), Agent 1 may spawn sub-agents:
+- 1a: Reddit deep-dive (search multiple subreddits)
+- 1b: Professional review sites (Wirecutter, RTINGS, Tom's Guide)
+- 1c: YouTube review compilation
 
 ### Agent 2: Anti-Bias Research
 
-**الدور:** كسر فقاعة النتائج المعتادة
-**المنهج:** بحث عكسي، بدائل حسب البراند، بحث حسب بلد المنشأ
-**المخرج:** 2-4 خيارات بديلة مع مبرر كل واحد
+**Role:** Break the echo chamber of repeated recommendations
+**Method:** Reverse search, alternative brands, origin-based discovery
+**Output:** 2-4 alternative options with justification for each
 
-**تعليمات:**
-- استخدم الاستراتيجيات الست من `anti-bias-playbook.md`
-- وسّع الأفق، لا تستبعد الخيارات المشهورة
-- لو ما لقيت بديل حقيقي أفضل، قل ذلك بصراحة
+**Full Prompt:**
+
+```
+You are part of a 7-agent product research team. Your role: Anti-Bias Research.
+Your teammates cover other angles — focus strictly on YOUR specific role.
+
+Product: {product}
+Budget: {budget}
+
+Available search tools: {available_tools}
+Preferred tools: web_search with reverse queries, exa for semantic discovery, camofox for niche sites
+Fallback: web_search + web_fetch
+
+YOUR MISSION: Break the echo chamber. Most searches return the same 3 brands because of 
+survivorship bias, affiliate marketing, and LLM training data repetition. Your job is to 
+find what those searches miss.
+
+USE THESE 6 REVERSE SEARCH STRATEGIES:
+
+1. NEGATIVE SEARCH: "{product} problems", "why I returned {product}", "{popular_option} issues"
+2. BRAND ALTERNATIVES: "{category} {lesser_known_brand}", search for brands from different regions
+3. ORIGIN-BASED: "best {category} Japanese", "best {category} Korean", "best {category} Chinese audiophile"
+4. PRICE-POINT: "best {category} under ${price}" — search by price, not brand
+5. PROFESSIONAL COMMUNITY: "what {professionals} actually use {category}", "real {use_case} setup"
+6. NON-ENGLISH: Search in other languages for region-specific recommendations
+
+IMPORTANT: The goal is to EXPAND the horizon, NOT to exclude popular options. If reverse search
+confirms the mainstream choice is genuinely the best, that's a valid and valuable result. Say so.
+
+OUTPUT FORMAT:
+For each alternative found (2-4):
+- Product name and model
+- Why it was missed by mainstream search (which bias?)
+- How it compares to the popular options
+- Evidence: real user reviews, professional endorsements, teardown comparisons
+- Risk assessment: warranty, support, longevity concerns
+```
 
 ### Agent 3: Local Market Scanner
 
-**الدور:** مسح السوق السعودي
-**المنصات:** Amazon.sa, noon.com, jarir.com, extra.com
-**المخرج:** جدول بالأسعار والتوفر لكل منتج مرشح
+**Role:** Scan the Saudi market for real prices and availability
+**Platforms:** Amazon.sa, noon.com, jarir.com, extra.com
+**Output:** Price and availability table for all candidate products
 
-**تعليمات:**
-- تحقق من نوع البائع: رسمي، موزع معتمد، أو طرف ثالث
-- سجّل سعر الشحن والضريبة
-- تحقق من وجود ضمان محلي
-- نبّه لو السعر المحلي أعلى بكثير من السعر الدولي (Price Inversion)
+**Full Prompt:**
+
+```
+You are part of a 7-agent product research team. Your role: Local Market Scanner.
+Your teammates cover other angles — focus strictly on YOUR specific role.
+
+Product: {product}
+Budget: {budget}
+
+Available search tools: {available_tools}
+Preferred tools: camofox for retailer sites (bypasses bot detection), web_fetch as fallback
+Fallback: web_search + web_fetch
+
+PLATFORMS TO CHECK:
+1. Amazon.sa — Check "Ships from" and "Sold by" fields
+2. noon.com — Look for "noon Express" badge (warehouse stock)
+3. jarir.com — Official distributor for many brands
+4. extra.com — Check both online and in-store availability
+
+FOR EACH PRODUCT ON EACH PLATFORM, RECORD:
+- Exact price (in SAR)
+- Whether VAT (15%) is included
+- Seller type: official store, authorized distributor, or third-party seller
+- Shipping: free or paid, cost, estimated delivery time
+- Availability: in stock, limited stock, pre-order, or out of stock
+- Warranty: local warranty included? duration?
+- Return policy: how many days, conditions
+
+ALERT IF:
+- A third-party seller is pricing significantly above official channels
+- A product shows as "Ships from abroad" (longer delivery, possible customs)
+- The local price is 30%+ above the international price (Price Inversion)
+
+OUTPUT FORMAT:
+A table per product with all platforms compared, plus any alerts.
+```
+
+**Nested sub-agent option:** Agent 3 may spawn one sub-agent per platform for truly parallel price checking:
+- 3a: Amazon.sa via camofox
+- 3b: noon.com via camofox
+- 3c: jarir.com via web_fetch
+- 3d: extra.com via web_fetch
 
 ### Agent 4: Niche Community Diver
 
-**الدور:** استكشاف المجتمعات المتخصصة
-**المصادر:** منتديات، مجموعات Facebook، Discord servers، subreddits صغيرة
-**المخرج:** توصيات من محترفين مع سياق الاستخدام
+**Role:** Find expert opinions from specialized communities
+**Sources:** Specialized forums, Facebook groups, Discord servers, small subreddits
+**Output:** Recommendations from power users with usage context
 
-**تعليمات:**
-- ابحث عن آراء المستخدمين الفعليين مو المراجعين
-- ركّز على المشاكل اللي واجهوها بعد فترة استخدام
-- المجتمعات المهنية أهم من المجتمعات العامة
+**Full Prompt:**
+
+```
+You are part of a 7-agent product research team. Your role: Niche Community Diver.
+Your teammates cover other angles — focus strictly on YOUR specific role.
+
+Product: {product}
+Use case: {use_case}
+
+Available search tools: {available_tools}
+Preferred tools: exa for forum/community search, camofox for Discord/Facebook, web_search for subreddits
+Fallback: web_search + web_fetch
+
+SEARCH STRATEGY:
+1. Find the relevant specialized subreddit (not r/BuyItForLife — that's Agent 1's territory)
+2. Search for Facebook groups dedicated to this product category
+3. Look for Discord servers where professionals discuss gear
+4. Check specialized forums (Head-Fi for audio, DPReview for cameras, etc.)
+
+FOCUS ON:
+- Opinions from actual long-term users (6+ months), not day-one reviewers
+- Problems discovered after extended use (durability, software issues, degradation)
+- Professional workflows: what do people who use this for work actually choose?
+- "Sleeper" recommendations: products the community loves but reviewers ignore
+
+OUTPUT FORMAT:
+For each finding:
+- Product name (if a specific recommendation)
+- Community source
+- User's use case and experience duration
+- Key insight (positive or negative)
+- Relevance to the current request
+```
 
 ---
 
-## طبقة الخبرة (Expertise Layer)
+## Expertise Layer
 
 ### Agent 5: Domain Expert
 
-**الدور:** خبير المجال، يحكم ولا يبحث
-**المدخل:** نتائج طبقة البحث كاملة
-**المخرج:** تحليل تقني + ترتيب الخيارات
+**Role:** Judge search results with domain expertise — does NOT search
+**Input:** Combined results from all 4 search-layer agents
+**Output:** Expert analysis + ranked options
 
-**البرومبت الكامل:**
+**Full Prompt:**
 
 ```
-أنت جزء من فريق بحث مكوّن من 7 وكلاء. دورك: Domain Expert. زملاؤك يغطون الزوايا الأخرى — ركّز على دورك بالتحديد.
+You are part of a 7-agent product research team. Your role: Domain Expert.
+Your teammates cover other angles — focus strictly on YOUR specific role.
 
-أنت خبير في مجال {product_category}. فريق البحث جمع لك النتائج التالية:
+You are an expert in {product_category}. Your search team has gathered the following results:
 
 {search_layer_results}
 
-مهمتك: حلل هالنتائج كخبير. لا تبحث. لا تضيف منتجات جديدة.
+YOUR TASK: Analyze these results as a domain expert. Do NOT search. Do NOT add new products.
 
-اسأل 5 أسئلة:
-1. هل المواصفات تخدم الاستخدام الفعلي للمستخدم؟
-2. وش الفرق الحقيقي بين الخيارات المرشحة؟ (مو الفرق على الورق)
-3. هل فيه مواصفات مبالغ فيها (overkill) للاستخدام المطلوب؟
-4. وش اللي ما ينذكر عادة في المراجعات لكنه مهم؟
-5. لو تشتري لنفسك، وش تختار ولِيه؟
+Answer these 5 questions:
 
-رتّب الخيارات من الأفضل للأقل مع تبرير.
+1. DO THE SPECS SERVE THE ACTUAL USE CASE?
+   Some specs look impressive on paper but don't matter for this user's needs.
+   Identify any specs that are irrelevant to the stated use case.
+
+2. WHAT'S THE REAL DIFFERENCE BETWEEN OPTIONS?
+   Not the on-paper difference — the difference the user would actually feel.
+   Some $500 gaps between products translate to marginal real-world improvements.
+
+3. IS ANYTHING OVERKILL?
+   Specs beyond what the use case demands mean paying for unused capability.
+   Flag anything that's more than what this specific user needs.
+
+4. WHAT DO REVIEWS TYPICALLY MISS?
+   Ease of setup, companion software quality, spare parts availability,
+   community support size, ecosystem lock-in — things that matter but aren't benchmarked.
+
+5. IF YOU WERE BUYING FOR YOURSELF, WHAT WOULD YOU CHOOSE AND WHY?
+   Force a personal recommendation. Not a neutral analysis — a decision with reasoning.
+
+OUTPUT: Rank all options from best to worst with clear justification for each position.
 ```
 
 ### Agent 6: Latest Tech Tracker
 
-**الدور:** تتبع آخر التطورات والإعلانات
-**المدخل:** نوع المنتج
-**المخرج:** معلومات التوقيت والأجيال
+**Role:** Track recent launches, upcoming products, and discontinuations
+**Input:** Product type
+**Output:** Timing advice and generation comparison
 
-**البرومبت الكامل:**
+**Full Prompt:**
 
 ```
-أنت جزء من فريق بحث مكوّن من 7 وكلاء. دورك: Latest Tech Tracker. زملاؤك يغطون الزوايا الأخرى — ركّز على دورك بالتحديد.
+You are part of a 7-agent product research team. Your role: Latest Tech Tracker.
+Your teammates cover other angles — focus strictly on YOUR specific role.
 
-المنتج: {product}
+Product: {product}
 
-ابحث عن:
-1. منتجات جديدة أُعلنت آخر 6 شهور في هالفئة
-2. إعلانات من معارض CES, MWC, IFA الأخيرة
-3. هل فيه جيل جديد متوقع خلال 3 شهور
-4. منتجات توقف إنتاجها أو أُعلن عن إيقافها
-5. مقارنة سريعة: الجيل الحالي مقابل السابق (هل الترقية تستاهل)
+Available search tools: {available_tools}
+Preferred tools: web_search for recent news, web_fetch for tech news sites
+Fallback: web_search + web_fetch
 
-استراتيجيات البحث:
-- حدد البحث بآخر 6 شهور
-- استخدم كلمات: "launch", "announced", "new", "2024", "2025"
-- ابحث بأسماء المعارض + فئة المنتج
-- تحقق من صفحات "new arrivals" على المواقع الرسمية
-- ابحث عن "discontinued" + اسم المنتج
+SEARCH FOR:
+1. Products launched in the last 6 months in this category
+2. Announcements from recent trade shows (CES, MWC, IFA)
+3. Upcoming next-gen launches expected within 3 months
+4. Products that have been discontinued or announced end-of-life
+5. Current generation vs. previous: is the upgrade meaningful?
 
-المطلوب: هل الوقت مناسب للشراء أو الأفضل ينتظر؟ مع السبب.
+SEARCH STRATEGIES:
+- Time-bound queries: restrict to last 6 months
+- Launch keywords: "announced", "launched", "new", "2025", "2026", "upcoming"
+- Trade show queries: "CES {year} {product_category}", "MWC {year} {product_category}"
+- New arrivals: check official brand websites for recent additions
+- Discontinuation: "{product} discontinued", "{product} end of life"
+
+OUTPUT:
+- Is now a good time to buy, or should the user wait? Why?
+- List any new or upcoming products relevant to this category
+- Flag any recommended products that are being discontinued
+- Generation comparison if applicable (is upgrading worth it?)
 ```
 
-**قاعدة:** عند تعارض رأي الخبير (Agent 5) مع Latest Tech (Agent 6)، رأي الخبير يتفوق. السبب: الخبير يفهم القيمة الفعلية بينما Latest Tech يركز على الجديد فقط.
+**Priority Rule:** When Agent 5 (Expert) and Agent 6 (Latest Tech) conflict, the Expert wins. Latest Tech focuses on "what's new" by design, but "new" is not always "better." The Expert understands when the current generation is good enough.
+
+**Exception:** If Agent 6 discovers that a recommended product is being discontinued, or a new generation launches within weeks at the same price, that factual information overrides expert opinion (it's a fact, not a judgment call).
 
 ---
 
-## طبقة السعر (Price Layer)
+## Price Layer
 
 ### Agent 7: Price & Deal Hunter
 
-**الدور:** إيجاد أفضل صفقة ممكنة
-**المدخل:** المنتجات النهائية بعد التجميع
-**المخرج:** أفضل سعر مع كل التفاصيل
+**Role:** Find the absolute best deal for each finalist product
+**Input:** Finalist products from the convergence phase
+**Output:** Complete pricing breakdown with deals
 
-**البرومبت الكامل:**
+**Full Prompt:**
 
 ```
-أنت جزء من فريق بحث مكوّن من 7 وكلاء. دورك: Price & Deal Hunter. زملاؤك يغطون الزوايا الأخرى — ركّز على دورك بالتحديد.
+You are part of a 7-agent product research team. Your role: Price & Deal Hunter.
+Your teammates cover other angles — focus strictly on YOUR specific role.
 
-المنتجات المطلوب تسعيرها:
+Products to price:
 {converged_products}
 
-لكل منتج:
+Available search tools: {available_tools}
+Preferred tools: camofox for live retailer pricing, web_search for coupon codes
+Fallback: web_search + web_fetch
 
-1. السعر الحالي على كل منصة سعودية (Amazon.sa, noon, jarir, extra)
-2. كوبونات وأكواد خصم فعّالة حاليا
-3. عروض كاشباك:
-   - بطاقات بنكية (الراجحي، الأهلي، STC Pay)
-   - تطبيقات كاشباك
-4. خيارات تقسيط بدون فوائد (تمارا، تابي)
-5. برامج Trade-in اذا متوفرة
-6. تفاصيل البائع:
-   - نوع البائع (رسمي/موزع/طرف ثالث)
-   - تكلفة الشحن
-   - هل الضريبة مشمولة
-   - مدة التوصيل
-   - سياسة الاسترجاع
+FOR EACH PRODUCT:
 
-تحقق من Price Inversion: قارن السعر المحلي بالسعر الدولي (أمازون أمريكا + شحن). اذا الفرق أكثر من 30%، نبّه.
+1. CURRENT PRICE on every local platform (Amazon.sa, noon, jarir, extra)
+2. ACTIVE COUPONS and discount codes
+3. CASHBACK OFFERS:
+   - Bank cards (Al Rajhi, Al Ahli, STC Pay)
+   - Cashback apps
+4. INSTALLMENT OPTIONS:
+   - Tamara (interest-free)
+   - Tabby (interest-free)
+   - Store installment plans
+5. TRADE-IN programs if available
+6. SELLER DETAILS:
+   - Seller type: official / authorized distributor / third party
+   - Shipping cost
+   - Whether VAT is included
+   - Estimated delivery time
+   - Return policy
+7. PRICE INVERSION CHECK:
+   Compare local price vs. Amazon.com + international shipping + customs (~15%).
+   Alert if the local price exceeds international by 30%+.
+
+OUTPUT: For each product, a complete pricing table across all platforms with the best deal highlighted.
 ```
 
 ---
 
-## قواعد التجميع (Convergence Rules)
+## Convergence Rules
 
-1. **إجماع 3/4:** اذا 3 من 4 وكلاء بحث رشحوا نفس المنتج، هذي إشارة قوية. لكن تحقق: هل اعتمدوا على نفس المصدر الأصلي؟ اذا كلهم من Wirecutter، هذا مصدر واحد مو ثلاثة.
+1. **3/4 Consensus:** If 3 of 4 search agents recommended the same product, it's a strong signal. But verify: did they all trace back to the same original source? Three agents citing Wirecutter = one source, not three.
 
-2. **الخبير يحسم:** عند التعارض بين نتائج البحث وتحليل الخبير، الخبير يتفوق.
+2. **Expert Decides:** When search results conflict with the expert analysis, the expert wins.
 
-3. **الصراحة أولا:** اذا كل الوكلاء وصلوا لنفس النتيجة (المنتج المشهور هو فعلا الأفضل)، لا تخترع بديل. قل: "الخيار المشهور هو فعلا الأفضل لهالاستخدام."
+3. **Honesty First:** If every agent converged on the same product (the popular choice is genuinely the best), do NOT invent an alternative. Say: "The popular choice is genuinely the best for this use case."
 
-4. **التوقيت يلغي:** اذا Agent 6 اكتشف إن جيل جديد ينزل خلال شهر، هالمعلومة قد تلغي كل التوصيات. قدمها بوضوح للمستخدم وخلّه يقرر.
+4. **Timing Can Override:** If Agent 6 discovered a new generation launching within weeks, this information may override all other recommendations. Present it clearly and let the user decide.
 
-5. **السعر المحلي يحكم:** المنتج ممكن يكون الأفضل عالميا لكن في السوق السعودي سعره مضاعف. القيمة تتحدد بالسعر المحلي.
+5. **Local Price Rules:** A product can be the global best but locally overpriced to the point where value breaks down. Value is always determined by the local price.

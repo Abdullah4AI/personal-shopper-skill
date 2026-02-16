@@ -1,63 +1,65 @@
 # Anti-Bias Playbook
 
-## ليه البحث العادي يرجّع نفس النتائج
+## Why Normal Search Returns the Same Results
 
-| التحيز | الوصف |
-|--------|-------|
-| Survivorship Bias | المنتجات المشهورة تحصل مراجعات أكثر، فتطلع أول في البحث، فتحصل مراجعات أكثر. حلقة مغلقة. |
-| Echo Chamber | نفس المراجعين يراجعون نفس المنتجات. Wirecutter يرشّح X، فـ Reddit يناقش X، فـ YouTube يراجع X. |
-| LLM Training Bias | نماذج الذكاء الاصطناعي تدربت على نفس المحتوى المتكرر، فتوصياتها تعكس نفس الفقاعة. |
+| Bias | Description |
+|------|-------------|
+| Survivorship Bias | Popular products get more reviews, rank higher in search, get more reviews. A closed loop. |
+| Echo Chamber | Same reviewers review the same products. Wirecutter recommends X, Reddit discusses X, YouTube reviews X. |
+| LLM Training Bias | AI models trained on the same repeated content reflect the same bubble in their recommendations. |
+| Affiliate Bias | Products with higher affiliate commissions get promoted more regardless of quality. |
 
-## الاستراتيجيات الست للبحث العكسي
+## The 6 Reverse Search Strategies
 
-| # | الاستراتيجية | الطريقة | مثال |
-|---|-------------|---------|------|
-| 1 | Negative Search | ابحث عن عيوب المنتج المشهور: "{product} problems", "why I returned {product}" | "Shure MV7 problems podcast" |
-| 2 | Brand-Specific Alternative | ابحث عن بدائل من براندات أقل شهرة: "{category} {lesser_known_brand}" | "USB microphone Maono", "USB microphone Fifine" |
-| 3 | Origin-Based | ابحث حسب بلد المنشأ: "best {category} Japanese", "best {category} Korean" | "best headphones Chinese audiophile" |
-| 4 | Price-Point | ابحث بالسعر مو بالبراند: "best {category} under $50" بدل "best {brand}" | "best microphone under 200 SAR" |
-| 5 | Professional Community | ابحث في مجتمعات المحترفين: "what {professionals} actually use" | "what podcasters actually use microphone reddit" |
-| 6 | Non-English | ابحث بلغات ثانية (عربي، ياباني، كوري) | "أفضل مايكروفون للبودكاست تجربة" |
+| # | Strategy | Method | Example |
+|---|----------|--------|---------|
+| 1 | Negative Search | Search for flaws in popular products: "{product} problems", "why I returned {product}" | "Shure MV7 problems podcast" |
+| 2 | Brand Alternatives | Search for lesser-known brands: "{category} {brand}" | "USB microphone Maono", "USB microphone Fifine" |
+| 3 | Origin-Based | Search by country of origin: "best {category} Japanese", "best {category} Korean" | "best headphones Chinese audiophile" |
+| 4 | Price-Point | Search by price, not brand: "best {category} under $50" | "best microphone under 200 SAR" |
+| 5 | Professional Community | Search what professionals use: "what {professionals} actually use" | "what podcasters actually use microphone reddit" |
+| 6 | Non-English | Search in other languages for region-specific recommendations | Arabic, Japanese, Korean product reviews |
 
-**مهم:** الهدف هو توسيع الأفق، مو استبعاد الخيارات المشهورة. اذا البحث العكسي أكد إن المنتج المشهور فعلا الأفضل، هذي نتيجة صحيحة.
+**Important:** The goal is to EXPAND the horizon, not to exclude popular options. If reverse search confirms that the popular product is genuinely the best, that is a valid result.
 
-## علامات التحذير (Red Flags)
+## Red Flags in Reviews
 
-| العلامة | الوصف | كيف تكتشفها |
-|---------|-------|-------------|
-| مقالة تسويقية | المراجعة مدفوعة أو فيها روابط affiliate بكثرة | تحقق من disclosure، عدّ الروابط، شوف هل يذكر أي سلبية |
-| Echo Chamber | كل المصادر ترجع لنفس المراجعة الأصلية | تتبّع المصدر الأول، اذا كلهم من Wirecutter فهو مصدر واحد |
-| Upselling | المراجعة تدفعك دائما للخيار الأغلى | لاحظ: هل "الأفضل" دائما الأغلى بدون مبرر تقني واضح |
-| Affiliate Bias | الترتيب يعكس عمولة الـ affiliate مو جودة المنتج | المنتجات ذات العمولة العالية تتصدر دائما |
+| Flag | Description | How to Detect |
+|------|-------------|---------------|
+| Sponsored Content | Paid review disguised as genuine recommendation | Check disclosure, count affiliate links, see if any negatives mentioned |
+| Echo Chamber | All sources trace back to the same original review | Track the primary source; if all cite Wirecutter, that's one source |
+| Upselling | Review always pushes toward the most expensive option | Notice: is "the best" always the priciest without clear technical justification? |
+| Affiliate Bias | Ranking reflects commission rates, not quality | High-commission products consistently placed first |
+| Honeymoon Reviews | All reviews from the first month of ownership | No long-term reliability data; initial excitement skews perception |
 
-## تقييم البراندات غير المعروفة
+## Evaluating Unknown Brands
 
-### الفحص السريع (5 دقائق)
+### Quick Check (5 minutes)
 
-1. ابحث عن موقع الشركة الرسمي: هل فيه معلومات واضحة؟
-2. تحقق من عمر الشركة على LinkedIn أو Crunchbase
-3. ابحث عن "{brand} review" على Reddit: هل فيه مستخدمين حقيقيين؟
-4. تحقق من التقييمات على Amazon: اقرأ المراجعات السلبية (3 نجوم تحديدا)
-5. ابحث عن "{brand} warranty" أو "{brand} customer service"
+1. Official website: does it exist with clear company information?
+2. Company age: check LinkedIn or Crunchbase
+3. Reddit search: "{brand} review" — are there real users?
+4. Amazon reviews: read the 3-star reviews specifically (most honest)
+5. Support: search "{brand} warranty" or "{brand} customer service"
 
-### الفحص العميق (15 دقيقة)
+### Deep Check (15 minutes)
 
-1. ابحث عن الشركة المصنّعة الفعلية (كثير من البراندات يصنّعون في نفس المصنع)
-2. قارن المواصفات التقنية الفعلية مو الـ marketing specs
-3. ابحث عن teardown أو disassembly videos
-4. تحقق من تاريخ المنتجات السابقة للبراند
-5. ابحث عن الموزع المعتمد في السعودية: هل موجود؟
+1. Find the actual manufacturer (many brands use the same factory)
+2. Compare actual technical specs, not marketing specs
+3. Search for teardown or disassembly videos
+4. Check the brand's product history (is this their first product?)
+5. Check for an authorized distributor locally
 
-### متى تثق ببراند غير معروف
+### When to Trust an Unknown Brand
 
-- فيه مستخدمين حقيقيين يمدحونه بعد 6+ شهور استخدام
-- الشركة عندها تاريخ في المجال (مو أول منتج)
-- فيه ضمان واضح وخدمة عملاء قابلة للوصول
-- الفرق السعري كبير بما فيه الكفاية (30%+ أرخص) يبرر المخاطرة
+- Real users praise it after 6+ months of use
+- The company has a track record in the category (not their first product)
+- Clear warranty and reachable customer support
+- The price difference is large enough (30%+ cheaper) to justify the risk
 
-### متى تتجنب
+### When to Avoid
 
-- المراجعات كلها من أول شهر (honeymoon reviews)
-- لا يوجد موزع محلي ولا ضمان
-- السعر قريب من البراند المعروف (لِيه تخاطر)
-- الشركة ما عندها منتجات سابقة ناجحة
+- All reviews are from the first month (honeymoon reviews)
+- No local distributor and no warranty
+- Price is close to the known brand (why take the risk?)
+- The company has no successful prior products

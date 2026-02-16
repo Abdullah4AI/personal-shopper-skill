@@ -1,104 +1,104 @@
 # Domain Expertise Layer
 
-## الفلسفة
+## Philosophy
 
-"الوكلاء يبحثون بشكل ممتاز لكنهم لا يفهمون."
+"Agents search excellently but they don't understand."
 
-وكيل البحث يقدر يجمع لك كل مراجعة ومواصفة وسعر. لكنه ما يقدر يقول لك: "هالمواصفة ما تفرق في استخدامك" أو "هالفرق على الورق ما تحسه في الواقع." هنا يجي دور طبقة الخبرة.
+A search agent can collect every review, spec sheet, and price. But it can't tell you: "this spec doesn't matter for your use case" or "the difference on paper doesn't translate to real-world impact." That's the expertise layer's job.
 
-طبقة الخبرة لا تبحث. تستقبل نتائج البحث وتحكم عليها.
+The expertise layer does NOT search. It receives search results and passes judgment.
 
-## Agent 5: الخبير - الأسئلة الخمسة
+## Agent 5: The Expert — 5 Critical Questions
 
-الخبير يسأل 5 أسئلة على كل مجموعة نتائج:
+The expert asks 5 questions on every set of search results:
 
-### 1. هل المواصفات تخدم الاستخدام الفعلي؟
+### 1. Do the specs serve the actual use case?
 
-مثال: مايكروفون بـ sample rate 192kHz. مبهر على الورق. لكن البودكاست والاجتماعات ما يحتاجون أكثر من 48kHz. هالمواصفة مبالغ فيها.
+Example: A microphone with 192kHz sample rate. Impressive on paper. But podcasting and meetings don't need more than 48kHz. That spec is overkill.
 
-### 2. وش الفرق الحقيقي بين الخيارات؟
+### 2. What's the real difference between options?
 
-مو الفرق على الورق. الفرق اللي المستخدم يحسه. أحيانا الفرق بين منتجين بفارق 500 ريال هو فرق تحسه بس في ظروف محددة.
+Not the spec sheet difference. The difference the user actually feels. Sometimes the gap between two products that cost $500 apart only shows under very specific conditions.
 
-### 3. هل فيه مواصفات overkill؟
+### 3. Are any specs overkill?
 
-المواصفة الزايدة عن الحاجة تعني إنك تدفع لشي ما تستفيد منه. مو دايم "الأحسن" هو الأنسب.
+Excess capability means paying for something you won't use. "Better" isn't always "best fit."
 
-### 4. وش اللي ما ينذكر في المراجعات عادة؟
+### 4. What do reviews typically miss?
 
-المراجعين يركزون على المواصفات القابلة للقياس. لكن أشياء مثل: سهولة الإعداد، جودة البرنامج المصاحب، توفر القطع، حجم المجتمع الداعم، هذي أشياء تأثيرها كبير وما تنذكر.
+Reviewers focus on measurable specs. But things like: ease of setup, companion software quality, spare parts availability, community size, ecosystem lock-in — these have massive impact and rarely get mentioned.
 
-### 5. لو تشتري لنفسك، وش تختار ولِيه؟
+### 5. If buying for yourself, what would you choose and why?
 
-السؤال الأهم. يجبر الخبير يختار ويبرر. مو تحليل محايد، قرار شخصي مبني على الخبرة.
+The most important question. Forces the expert to commit to a choice and justify it. Not a neutral analysis — a personal decision based on expertise.
 
-## Agent 6: استراتيجيات بحث التقنية الحديثة
+## Agent 6: Latest Tech Search Strategies
 
-| الاستراتيجية | التطبيق |
-|-------------|---------|
-| Time-bound search | حدد البحث بآخر 6 شهور |
-| Launch keywords | "announced", "launched", "new", "2025", "upcoming" |
-| Trade shows | CES + فئة المنتج، MWC + فئة المنتج، IFA + فئة المنتج |
-| New arrivals | صفحات "جديد" على المواقع الرسمية للشركات |
+| Strategy | Application |
+|----------|-------------|
+| Time-bound search | Restrict to the last 6 months |
+| Launch keywords | "announced", "launched", "new", "2025", "2026", "upcoming" |
+| Trade shows | CES + product category, MWC + product category, IFA + product category |
+| New arrivals | "New" pages on official brand websites |
 | Generation comparison | "{product} gen 2 vs gen 1", "worth upgrading" |
 | Discontinuation check | "{product} discontinued", "{product} end of life" |
 
-## قاعدة: الخبير يتفوق على Latest Tech
+## Priority Rule: Expert Overrides Latest Tech
 
-عند التعارض بين Agent 5 (الخبير) و Agent 6 (Latest Tech)، رأي الخبير يتفوق.
+When Agent 5 (Expert) and Agent 6 (Latest Tech) conflict, the Expert's judgment wins.
 
-**السبب:** Agent 6 يركز على "الجديد" بطبيعته. لكن "الجديد" مو دايم "الأفضل". الخبير يفهم متى الجيل السابق يكفي ومتى الجديد يستاهل.
+**Reason:** Agent 6 focuses on "what's new" by nature. But "new" is not always "better." The Expert understands when the current generation is sufficient and when the new one is worth waiting for.
 
-**الاستثناء:** اذا Agent 6 اكتشف إن المنتج المرشح توقف إنتاجه أو إن جيل جديد ينزل خلال أسابيع بنفس السعر، هالمعلومة تتفوق لأنها حقيقة مو رأي.
+**Exception:** If Agent 6 discovers that a recommended product has been discontinued or that a new generation launches within weeks at the same price, this factual information overrides expert opinion — because it's a fact, not a judgment.
 
-## أمثلة واقعية
+## Real-World Examples
 
-### نجاح: Maono PD200X
+### Success: Maono PD200X
 
-**السياق:** مستخدم يبي مايكروفون USB للبودكاست. الميزانية مفتوحة.
+**Context:** User needs a USB microphone for podcasting. Open budget.
 
-**نتائج البحث:** كل المصادر رشحت Shure MV7+ (حوالي 1,200 ريال).
+**Search results:** Every source recommended Shure MV7+ (~$250).
 
-**البحث العكسي (Agent 2):** اكتشف Maono PD200X. مايكروفون dynamic USB/XLR بمواصفات مشابهة.
+**Anti-Bias search (Agent 2):** Discovered Maono PD200X. Dynamic USB/XLR microphone with similar specs.
 
-**تحليل الخبير (Agent 5):**
-- المواصفات الصوتية متقاربة للاستخدام المطلوب (بودكاست)
-- الـ Shure عنده سمعة وبرنامج أفضل (ShurePlus MOTIV)
-- لكن للبودكاست المبتدئ، الفرق الصوتي غير محسوس
+**Expert analysis (Agent 5):**
+- Audio specs are comparable for the intended use (podcasting)
+- Shure has a better reputation and companion software (ShurePlus MOTIV)
+- For beginner podcasting, the audio difference is imperceptible
 
-**السعر:**
-- Shure MV7+: ~1,200 ريال
-- Maono PD200X: ~320 ريال
+**Price:**
+- Shure MV7+: ~$250
+- Maono PD200X: ~$79
 
-**النتيجة:** Maono PD200X، أرخص بـ 73%. القيمة واضحة.
+**Result:** Maono PD200X recommended. 73% cheaper. Clear value.
 
-### فشل: Maono BA92
+### Failure: Maono BA92
 
-**السياق:** نفس المستخدم يبي ذراع مايكروفون (boom arm).
+**Context:** Same user needs a boom arm for the microphone.
 
-**نتائج البحث:** Rode PSA1+ (حوالي 400 ريال).
+**Search results:** Rode PSA1+ (~$100).
 
-**البحث العكسي:** اكتشف Maono BA92. ذراع مايكروفون بمواصفات مشابهة.
+**Anti-Bias search:** Discovered Maono BA92. Boom arm with similar specs.
 
-**تحليل السوق المحلي (Agent 3):** BA92 متوفر بس عند resellers بسعر ~380 ريال.
+**Local market scan (Agent 3):** BA92 available only from resellers at ~$95.
 
-**النتيجة:** لا يستاهل. الفرق 20 ريال فقط. مع Rode تاخذ ضمان وجودة مثبتة. هنا البراند يفوز لأن القيمة الإضافية للبديل معدومة.
+**Result:** Not worth it. Only $5 difference. With Rode you get proven build quality and established warranty. The brand wins here because the alternative's value proposition is negligible.
 
-**الدرس:** البحث العكسي مو دايم يطلع ببديل أفضل. والصراحة في هالحالة أهم من إنك تلاقي بديل بالقوة.
+**Lesson:** Anti-bias search doesn't always find a better alternative. Honesty in that case is more valuable than forcing a recommendation.
 
-### نجاح: iPhone Air
+### Success: iPhone Air
 
-**السياق:** مستخدم يبي جوال جديد. يستخدمه لتصوير عادي وسوشال ميديا.
+**Context:** User needs a new phone. Uses it for casual photography and social media.
 
-**نتائج البحث:** كل المصادر رشحت iPhone 16 Pro أو Samsung S24 Ultra.
+**Search results:** Every source recommended iPhone 16 Pro or Samsung S24 Ultra.
 
-**تحليل الخبير (Agent 5):**
-- لاستخدام تصوير عادي وسوشال ميديا، Pro features مبالغ فيها
-- الكاميرا الأساسية في الموديلات العادية كافية تماما
-- الفرق يبان بس في التصوير الاحترافي (RAW, ProRes, Macro)
+**Expert analysis (Agent 5):**
+- For casual photography and social media, Pro features are overkill
+- The standard camera on non-Pro models is perfectly adequate
+- The real difference only shows in RAW photography, ProRes video, Macro mode
 
-**Latest Tech (Agent 6):** iPhone Air معلن عنه، أنحف وأخف بمواصفات كافية.
+**Latest Tech (Agent 6):** iPhone Air announced — thinner, lighter, with specs adequate for the use case.
 
-**النتيجة:** iPhone Air (أو الموديل العادي). هنا البراند (Apple) فاز لكن بالموديل الأنسب مو الأغلى. القيمة في اختيار المواصفات الصح مو البراند الصح.
+**Result:** iPhone Air (or the standard model). The brand won, but with the RIGHT model, not the most expensive one. Value comes from matching specs to needs, not from choosing a different brand.
 
-**الدرس:** أحيانا التوصية مو "اشتر براند ثاني" بل "اشتر موديل ثاني من نفس البراند."
+**Lesson:** Sometimes the recommendation isn't "buy a different brand" but "buy a different model from the same brand."

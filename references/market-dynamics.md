@@ -1,66 +1,66 @@
-# Market Dynamics - السوق السعودي
+# Market Dynamics — Saudi Market
 
-## اكتشاف Price Inversion
+## Price Inversion
 
-Price Inversion: لما المنتج يكون أغلى محليا من سعره الدولي + شحن دولي + جمارك. هالظاهرة شائعة في السوق السعودي بسبب طبقات التوزيع.
+Price Inversion: when a product costs more locally than its international price + shipping + customs. Common in the Saudi market due to distribution layers.
 
-مو كل فرق سعر يعتبر Price Inversion. الفرق لازم يكون أكثر من 30% عشان يكون ملحوظ، لأن الشراء المحلي فيه مزايا: ضمان محلي، إرجاع سهل، توصيل سريع.
+Not every price gap counts as Price Inversion. The gap must exceed 30% to be noteworthy, because local purchasing has inherent advantages: local warranty, easy returns, fast delivery.
 
-## أنماط التسعير الأربعة
+## 4 Pricing Patterns
 
-| النمط | الوصف | تأثير السعر | مثال |
-|-------|-------|-------------|------|
-| Direct Distribution | الشركة تبيع مباشرة أو عبر متجرها الرسمي | سعر قريب من الدولي | Apple Store SA, Samsung SA |
-| Reseller/Importer | طرف ثالث يستورد ويبيع على أمازون أو نون | سعر أعلى 20-60% من الدولي | معظم البراندات الصغيرة على Amazon.sa |
-| Official Distributor | موزع معتمد بعقد رسمي مع الشركة | سعر أعلى 10-25% مع ضمان محلي | جرير كموزع لكثير من البراندات |
-| Exclusive Product | منتج مصمم خصيصا للسوق المحلي | لا يوجد مقارنة دولية | بعض أجهزة STC |
+| Pattern | Description | Price Impact | Example |
+|---------|-------------|--------------|---------|
+| Direct Distribution | Company sells directly via its own store | Close to international price | Apple Store SA, Samsung SA |
+| Reseller/Importer | Third party imports and sells on Amazon/noon | 20-60% above international | Most small brands on Amazon.sa |
+| Official Distributor | Authorized distributor with official contract | 10-25% above with local warranty | Jarir as distributor for many brands |
+| Exclusive Product | Product designed specifically for the local market | No international comparison available | Some STC devices |
 
-## دليل المنصات السعودية
+## Saudi Platform Guide
 
 ### Amazon.sa
-- **نقطة القوة:** تشكيلة واسعة، شحن سريع مع Prime
-- **نقطة الضعف:** كثير من البائعين طرف ثالث بأسعار مبالغ فيها
-- **تحقق من:** "Ships from" و "Sold by". اذا مو "Amazon.sa" تحقق من البائع
-- **الإرجاع:** سهل خلال 15-30 يوم حسب المنتج
+- **Strength:** Wide selection, fast shipping with Prime
+- **Weakness:** Many third-party sellers with inflated prices
+- **Verify:** "Ships from" and "Sold by" — if not "Amazon.sa", investigate the seller
+- **Returns:** 15-30 days depending on the product
 
 ### noon.com
-- **نقطة القوة:** عروض وكوبونات مستمرة، noon Express سريع
-- **نقطة الضعف:** بعض المنتجات من بائعين غير موثوقين
-- **تحقق من:** شارة "noon Express" تعني المنتج في مستودع نون
-- **الإرجاع:** سهل خلال 15 يوم
+- **Strength:** Frequent coupons and promotions, fast noon Express
+- **Weakness:** Some unreliable third-party sellers
+- **Verify:** "noon Express" badge means the product is in noon's warehouse
+- **Returns:** 15 days
 
-### jarir.com (جرير)
-- **نقطة القوة:** موزع معتمد لكثير من البراندات، ضمان محلي موثوق
-- **نقطة الضعف:** تشكيلة محدودة، أسعار أعلى أحيانا
-- **تحقق من:** التوفر في الفرع مقابل أونلاين (أحيانا يختلف)
-- **الإرجاع:** 7 أيام فقط
+### jarir.com (Jarir)
+- **Strength:** Authorized distributor for many brands, reliable local warranty
+- **Weakness:** Limited selection, sometimes higher prices
+- **Verify:** In-store vs. online availability and pricing may differ
+- **Returns:** 7 days only
 
-### extra.com (اكسترا)
-- **نقطة القوة:** فروع كثيرة، خيارات تقسيط متعددة
-- **نقطة الضعف:** تشكيلة إلكترونيات محدودة مقارنة بأمازون
-- **تحقق من:** سعر الفرع مقابل الأونلاين (يختلف أحيانا)
-- **الإرجاع:** 7 أيام
+### extra.com (Extra)
+- **Strength:** Many physical stores, multiple installment options
+- **Weakness:** Limited electronics selection compared to Amazon
+- **Verify:** In-store vs. online prices may differ
+- **Returns:** 7 days
 
-## إشارات التحذير
+## Warning Signs
 
-| الإشارة | الوصف | الإجراء |
-|---------|-------|---------|
-| بائع بدون تقييمات | بائع جديد على المنصة | تجنب الا اذا السعر عادي والمنتج مضمون من المنصة |
-| سعر أقل بكثير من السوق | احتمال تقليد أو مستعمل يتباع كجديد | تحقق من مصدر البائع والضمان |
-| "شحن من الخارج" | وقت توصيل طويل + احتمال جمارك | احسب التكلفة الكاملة مع الشحن والجمارك |
-| "الكمية محدودة" | ضغط نفسي للشراء السريع | تجاهل، ابحث بهدوء |
-| لا يوجد ضمان محلي | اذا خرب، لا أحد يساعدك | خذ بالحسبان تكلفة الاستبدال الكامل |
-| سعر متذبذب | السعر يتغير كل يوم | راقبه أسبوع أو استخدم price tracker |
+| Sign | Description | Action |
+|------|-------------|--------|
+| Seller with no ratings | New seller on the platform | Avoid unless the price is normal and the product ships from the platform's warehouse |
+| Price far below market | Possible counterfeit or used-sold-as-new | Verify the seller's source and warranty claim |
+| "Ships from abroad" | Long delivery + possible customs | Calculate the full cost including shipping and customs |
+| "Limited quantity" | Psychological pressure to buy fast | Ignore and research calmly |
+| No local warranty | If it breaks, nobody helps you | Factor in the cost of full replacement |
+| Fluctuating price | Price changes daily | Monitor for a week or use a price tracker |
 
-## قائمة فحص السعر
+## Price Verification Checklist
 
-قبل ما توصي بمنتج من منصة معينة، تحقق من:
+Before recommending a product from any platform, verify:
 
-- [ ] **نوع البائع:** رسمي، موزع معتمد، أو طرف ثالث
-- [ ] **الشحن:** مجاني ولا مدفوع، وكم التكلفة
-- [ ] **الضريبة:** هل السعر شامل VAT (15%)
-- [ ] **رسوم إضافية:** تركيب، توصيل خاص، تأمين
-- [ ] **مصدر التوصيل:** من مستودع المنصة أو من البائع مباشرة
-- [ ] **التوفر:** متوفر حاليا أو pre-order
-- [ ] **استقرار السعر:** هل السعر ثابت ولا متذبذب (تحقق من تاريخ السعر اذا متاح)
-- [ ] **مقارنة دولية:** قارن بسعر Amazon.com + شحن + جمارك (15% تقريبا)
+- [ ] **Seller type:** Official, authorized distributor, or third party
+- [ ] **Shipping:** Free or paid, and how much
+- [ ] **Tax:** Is the price inclusive of 15% VAT?
+- [ ] **Additional fees:** Installation, special delivery, insurance
+- [ ] **Fulfillment:** From the platform's warehouse or directly from the seller
+- [ ] **Availability:** In stock, limited stock, or pre-order
+- [ ] **Price stability:** Has the price been consistent or fluctuating? (Check price history if available)
+- [ ] **International comparison:** Compare with Amazon.com + shipping + customs (~15%)
